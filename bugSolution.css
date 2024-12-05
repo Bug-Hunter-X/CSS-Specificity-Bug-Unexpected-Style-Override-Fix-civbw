@@ -1,0 +1,27 @@
+The solution involves adjusting the CSS selectors to ensure the intended style takes precedence. One way is to make the `.container div.special` selector more specific:
+
+```css
+.container {
+  background-color: lightblue;
+}
+
+.container div {
+  background-color: lightcoral;
+}
+
+.container div.special {
+  background-color: lightgreen; /* This style will now override */
+}
+
+.container .special {
+  background-color: lightpink; /* This is less specific and will be overridden */
+}
+```
+
+Alternatively, you could use the `!important` flag, but this should be used sparingly because it can make CSS harder to maintain:
+
+```css
+.container div.special {
+  background-color: lightgreen !important; 
+}
+```
