@@ -1,0 +1,25 @@
+The following CSS code snippet demonstrates an issue where the expected behavior of a selector does not occur due to specificity issues:
+
+```css
+.container {
+  background-color: lightblue;
+}
+
+.container div {
+  background-color: lightcoral;
+}
+
+.container div.special {
+  background-color: lightgreen; /* This style should override the previous one */
+}
+
+.container .special {
+  background-color: lightpink; /* This style is more specific and overrides lightgreen */
+}
+
+<div class="container">
+  <div class="special"></div>
+</div>
+```
+
+The intended behavior is that the inner `div` with class `special` should have a `lightgreen` background. However, because the selector `.container .special` is more specific than `.container div.special`, the `lightpink` background is applied instead.
